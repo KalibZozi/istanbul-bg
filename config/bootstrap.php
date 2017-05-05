@@ -222,3 +222,11 @@ Type::build('timestamp')
 if (Configure::read('debug')) {
     Plugin::load('DebugKit', ['bootstrap' => true]);
 }
+
+Plugin::load('CakeDC/Users', ['routes' => true, 'bootstrap' => true]);
+/*
+Configure::write('Users.reCaptcha.key', '6LdpogQTAAAAAABZskVP3B3ArNCwPFaYdhavKKJa');
+Configure::write('Users.reCaptcha.secret', '6LdpogQTAAAAAMm2mdE4zFJF2KVqrXmXGP7r5aC8');
+Configure::write('Users.reCaptcha.registration', true); //enable on registration
+Configure::write('Users.reCaptcha.login', true); //enable on login
+*/

@@ -144,7 +144,7 @@ trait ComparisonTrait
      *
      * @param \Cake\Chronos\ChronosInterface $dt1 The instance to compare with.
      * @param \Cake\Chronos\ChronosInterface $dt2 The instance to compare with.
-     * @return static
+     * @return \Cake\Chronos\ChronosInterface
      */
     public function closest(ChronosInterface $dt1, ChronosInterface $dt2)
     {
@@ -156,7 +156,7 @@ trait ComparisonTrait
      *
      * @param \Cake\Chronos\ChronosInterface $dt1 The instance to compare with.
      * @param \Cake\Chronos\ChronosInterface $dt2 The instance to compare with.
-     * @return static
+     * @return \Cake\Chronos\ChronosInterface
      */
     public function farthest(ChronosInterface $dt1, ChronosInterface $dt2)
     {
@@ -237,6 +237,66 @@ trait ComparisonTrait
     public function isTomorrow()
     {
         return $this->toDateString() === static::tomorrow($this->tz)->toDateString();
+    }
+
+    /**
+     * Determines if the instance is within the next week
+     *
+     * @return bool
+     */
+    public function isNextWeek()
+    {
+        return $this->weekOfYear === static::now($this->tz)->addWeek()->weekOfYear;
+    }
+
+    /**
+     * Determines if the instance is within the last week
+     *
+     * @return bool
+     */
+    public function isLastWeek()
+    {
+        return $this->weekOfYear === static::now($this->tz)->subWeek()->weekOfYear;
+    }
+
+    /**
+     * Determines if the instance is within the next month
+     *
+     * @return bool
+     */
+    public function isNextMonth()
+    {
+        return $this->month === static::now($this->tz)->addMonth()->month;
+    }
+
+    /**
+     * Determines if the instance is within the last month
+     *
+     * @return bool
+     */
+    public function isLastMonth()
+    {
+        return $this->month === static::now($this->tz)->subMonth()->month;
+    }
+
+    /**
+     * Determines if the instance is within the next year
+     *
+     * @return bool
+     */
+    public function isNextYear()
+    {
+        return $this->year === static::now($this->tz)->addYear()->year;
+    }
+
+    /**
+     * Determines if the instance is within the last year
+     *
+     * @return bool
+     */
+    public function isLastYear()
+    {
+        return $this->year === static::now($this->tz)->subYear()->year;
     }
 
     /**

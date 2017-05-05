@@ -10,6 +10,8 @@ use JsonSchema\Uri\UriRetriever;
 
 class SchemaStorage implements SchemaStorageInterface
 {
+    const INTERNAL_PROVIDED_SCHEMA_URI = 'internal://provided-schema';
+
     protected $uriRetriever;
     protected $uriResolver;
     protected $schemas = array();
@@ -18,8 +20,8 @@ class SchemaStorage implements SchemaStorageInterface
         UriRetrieverInterface $uriRetriever = null,
         UriResolverInterface $uriResolver = null
     ) {
-        $this->uriRetriever = $uriRetriever ?: new UriRetriever;
-        $this->uriResolver = $uriResolver ?: new UriResolver;
+        $this->uriRetriever = $uriRetriever ?: new UriRetriever();
+        $this->uriResolver = $uriResolver ?: new UriResolver();
     }
 
     /**
@@ -43,14 +45,17 @@ class SchemaStorage implements SchemaStorageInterface
      */
     public function addSchema($id, $schema = null)
     {
-        if (is_null($schema)) {
+        if (is_null($schema) && $id !== self::INTERNAL_PROVIDED_SCHEMA_URI) {
+            // if the schema was user-provided to Validator and is still null, then assume this is
+            // what the user intended, as there's no way for us to retrieve anything else. User-supplied
+            // schemas do not have an associated URI when passed via Validator::validate().
             $schema = $this->uriRetriever->retrieve($id);
         }
         $objectIterator = new ObjectIterator($schema);
         foreach ($objectIterator as $toResolveSchema) {
             if (property_exists($toResolveSchema, '$ref') && is_string($toResolveSchema->{'$ref'})) {
                 $jsonPointer = new JsonPointer($this->uriResolver->resolve($toResolveSchema->{'$ref'}, $id));
-                $toResolveSchema->{'$ref'} = (string)$jsonPointer;
+                $toResolveSchema->{'$ref'} = (string) $jsonPointer;
             }
         }
         $this->schemas[$id] = $schema;
@@ -74,8 +79,18 @@ class SchemaStorage implements SchemaStorageInterface
     public function resolveRef($ref)
     {
         $jsonPointer = new JsonPointer($ref);
-        $refSchema = $this->getSchema($jsonPointer->getFilename());
 
+        // resolve filename for pointer
+        $fileName = $jsonPointer->getFilename();
+        if (!strlen($fileName)) {
+            throw new UnresolvableJsonPointerException(sprintf(
+                "Could not resolve fragment '%s': no file is defined",
+                $jsonPointer->getPropertyPathAsString()
+            ));
+        }
+
+        // get & process the schema
+        $refSchema = $this->getSchema($fileName);
         foreach ($jsonPointer->getPropertyPaths() as $path) {
             if (is_object($refSchema) && property_exists($refSchema, $path)) {
                 $refSchema = $this->resolveRefSchema($refSchema->{$path});

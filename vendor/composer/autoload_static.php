@@ -13,6 +13,14 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         'ede59e3a405fb689cd1cebb7bb1db3fb' => __DIR__ . '/..' . '/cakephp/cakephp/src/Collection/functions.php',
         '90236b492da7ca2983a2ad6e33e4152e' => __DIR__ . '/..' . '/cakephp/cakephp/src/I18n/functions.php',
         'b1fc73705e1bec51cd2b20a32cf1c60a' => __DIR__ . '/..' . '/cakephp/cakephp/src/Utility/bootstrap.php',
+        'ea4ce7673810329a8035e47b90292cfc' => __DIR__ . '/..' . '/eloquent/phony/src/functions.php',
+        '01b65731e0d98a1753ededfbb8f0317a' => __DIR__ . '/..' . '/eloquent/phony/src/Pho/functions.php',
+        'eca34d0f835b69144b1968bae29eb769' => __DIR__ . '/..' . '/eloquent/phony/src/Phpunit/functions.php',
+        'a74630ec0c0b24159cc533a7cb92e7fb' => __DIR__ . '/..' . '/eloquent/phony/src/Simpletest/functions.php',
+        'c964ee0ededf28c96ebd9db5099ef910' => __DIR__ . '/..' . '/guzzlehttp/promises/src/functions_include.php',
+        'a0edc8309cc5e1d60e3047b5df6b7052' => __DIR__ . '/..' . '/guzzlehttp/psr7/src/functions_include.php',
+        '5255c38a0faeba867671b61dfda6d864' => __DIR__ . '/..' . '/paragonie/random_compat/lib/random.php',
+        '37a3dc5111fe8f707ab4c132ef1dbc62' => __DIR__ . '/..' . '/guzzlehttp/guzzle/src/functions_include.php',
         '667aeda72477189d0494fecd327c3641' => __DIR__ . '/..' . '/symfony/var-dumper/Resources/functions/dump.php',
         'e7223560d890eab89cda23685e711e2c' => __DIR__ . '/..' . '/psy/psysh/src/Psy/functions.php',
     );
@@ -41,6 +49,10 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
             'Seld\\JsonLint\\' => 14,
             'Seld\\CliPrompt\\' => 15,
         ),
+        'R' => 
+        array (
+            'ReCaptcha\\' => 10,
+        ),
         'P' => 
         array (
             'Psy\\' => 4,
@@ -53,9 +65,23 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         array (
             'Migrations\\' => 11,
         ),
+        'L' => 
+        array (
+            'League\\OAuth2\\Client\\' => 21,
+        ),
         'J' => 
         array (
             'JsonSchema\\' => 11,
+        ),
+        'G' => 
+        array (
+            'GuzzleHttp\\Psr7\\' => 16,
+            'GuzzleHttp\\Promise\\' => 19,
+            'GuzzleHttp\\' => 11,
+        ),
+        'E' => 
+        array (
+            'Eloquent\\Phony\\' => 15,
         ),
         'D' => 
         array (
@@ -72,6 +98,8 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
             'Cake\\Composer\\' => 14,
             'Cake\\Chronos\\' => 13,
             'Cake\\' => 5,
+            'CakeDC\\Users\\' => 13,
+            'CakeDC\\Auth\\' => 12,
         ),
         'B' => 
         array (
@@ -79,7 +107,7 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         ),
         'A' => 
         array (
-            'Aura\\Intl\\_Config\\' => 18,
+            'Aura\\Intl\\' => 10,
             'App\\Test\\' => 9,
             'App\\' => 4,
         ),
@@ -142,6 +170,10 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         array (
             0 => __DIR__ . '/..' . '/seld/cli-prompt/src',
         ),
+        'ReCaptcha\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/google/recaptcha/src/ReCaptcha',
+        ),
         'Psy\\' => 
         array (
             0 => __DIR__ . '/..' . '/psy/psysh/src/Psy',
@@ -166,9 +198,31 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         array (
             0 => __DIR__ . '/..' . '/cakephp/migrations/src',
         ),
+        'League\\OAuth2\\Client\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/league/oauth2-client/src',
+            1 => __DIR__ . '/..' . '/league/oauth2-facebook/src',
+            2 => __DIR__ . '/..' . '/league/oauth2-google/src',
+        ),
         'JsonSchema\\' => 
         array (
             0 => __DIR__ . '/..' . '/justinrainbow/json-schema/src/JsonSchema',
+        ),
+        'GuzzleHttp\\Psr7\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/psr7/src',
+        ),
+        'GuzzleHttp\\Promise\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/promises/src',
+        ),
+        'GuzzleHttp\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/guzzlehttp/guzzle/src',
+        ),
+        'Eloquent\\Phony\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/eloquent/phony/src',
         ),
         'DebugKit\\Test\\Fixture\\' => 
         array (
@@ -210,13 +264,21 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
         array (
             0 => __DIR__ . '/..' . '/cakephp/cakephp/src',
         ),
+        'CakeDC\\Users\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakedc/users/src',
+        ),
+        'CakeDC\\Auth\\' => 
+        array (
+            0 => __DIR__ . '/..' . '/cakedc/auth/src',
+        ),
         'Bake\\' => 
         array (
             0 => __DIR__ . '/..' . '/cakephp/bake/src',
         ),
-        'Aura\\Intl\\_Config\\' => 
+        'Aura\\Intl\\' => 
         array (
-            0 => __DIR__ . '/..' . '/aura/intl/config',
+            0 => __DIR__ . '/..' . '/aura/intl/src',
         ),
         'App\\Test\\' => 
         array (
@@ -245,17 +307,6 @@ class ComposerStaticInit6952214e597d2d33e22728f1b8f52d49
             'Detection' => 
             array (
                 0 => __DIR__ . '/..' . '/mobiledetect/mobiledetectlib/namespaced',
-            ),
-        ),
-        'A' => 
-        array (
-            'Aura\\Intl' => 
-            array (
-                0 => __DIR__ . '/..' . '/aura/intl/src',
-            ),
-            'Aura\\Composer\\' => 
-            array (
-                0 => __DIR__ . '/..' . '/aura/installer-default/src',
             ),
         ),
     );
